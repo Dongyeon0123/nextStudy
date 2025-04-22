@@ -31,3 +31,6 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+// head나 상단 메뉴 등 여기에 작성
