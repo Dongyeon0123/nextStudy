@@ -1,5 +1,6 @@
 'use Client'
 import {age, name} from './data'
+import Hello from './hello'
 
 export default function Cart() :JSX.Element {
     return (
@@ -13,7 +14,7 @@ export default function Cart() :JSX.Element {
         <CartItem/>
         <CartItem/>
         <CartItem/>
-        
+        <Hello/>
       </div>
     )
 }
