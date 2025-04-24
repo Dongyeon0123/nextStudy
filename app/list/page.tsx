@@ -37,7 +37,7 @@ export default function List(): JSX.Element {
         {
           상품.map((item :string, i :number ) :JSX.Element => {
             return (
-            <div className="food">
+            <div className="food" key={i}>
                 <h4>{상품[i]} $40</h4>
             </div>
             )
