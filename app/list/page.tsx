@@ -1,6 +1,9 @@
+'use client'
+
 import Image from "next/image";
 import styles from "./page.module.css";
 import 작명 from "/public/food0.png"
+import { useState } from "react"
 
 export default function List(): JSX.Element {
 
@@ -8,6 +11,8 @@ export default function List(): JSX.Element {
 
     let a :(string | number)[] = [20, 30, 'hello']
     console.log(a[1])
+
+    let [수량, 수량변경] = useState<number>(0);
 
   return (
     <div className="App">
@@ -43,6 +48,11 @@ export default function List(): JSX.Element {
                 {/* lazy loading, 사이즈 최적화, layout-shift 방지 */}
                 {/* 근데 최적화는 보통 다 만들고 난 다음에 하는게 좋음 */}
                 <h4>{상품[i]} $40</h4>
+                <span> {수량} </span>
+                <button onClick={() => {
+                  수량변경(수량 + 1);
+                }}>+</button>
+                {/* state를 왜 쓰는지 알고있어야함. */}
             </div>
             )
           })
