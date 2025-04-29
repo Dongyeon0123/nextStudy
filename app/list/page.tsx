@@ -12,7 +12,7 @@ export default function List(): JSX.Element {
     let a :(string | number)[] = [20, 30, 'hello']
     console.log(a[1])
 
-    let [수량, 수량변경] = useState<number>(0);
+    let [수량, 수량변경] = useState<number[]>([0, 0, 0]);
 
   return (
     <div className="App">
@@ -48,10 +48,19 @@ export default function List(): JSX.Element {
                 {/* lazy loading, 사이즈 최적화, layout-shift 방지 */}
                 {/* 근데 최적화는 보통 다 만들고 난 다음에 하는게 좋음 */}
                 <h4>{상품[i]} $40</h4>
-                <span> {수량} </span>
+                <span> {수량[i]} </span>
                 <button onClick={() => {
-                  수량변경(수량 + 1);
+                  let copy수량 :number[] = [...수량];
+                  copy수량[i] += 1;
+                  수량변경(copy수량);
                 }}>+</button>
+                <button onClick={() => {
+                  let copy마이너스수량 = [...수량];
+                  copy마이너스수량[i] -= 1;
+                  수량변경(copy마이너스수량);
+                }}>
+                  -
+                </button>
                 {/* state를 왜 쓰는지 알고있어야함. */}
             </div>
             )
